@@ -1,0 +1,560 @@
+/* --- General Styles --- */
+* {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Roboto", sans-serif;
+  line-height: 1.8;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f8f8; /* Un gris muy claro, casi blanco, para una base más suave */
+  color: #333;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Importar fuentes de Google Fonts (esto ya lo tienes, solo para referencia) */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;700&display=swap");
+
+/* --- Header & Navigation --- */
+header {
+  background-color: #2c3e50; /* Azul oscuro/gris carbón - mantenemos este color elegante */
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2); /* Sombra más suave */
+  position: relative;
+  overflow: hidden;
+}
+
+.header-content {
+  padding: 4rem 1rem 1rem; /* Más padding superior para un look más "abierto" */
+  position: relative;
+  z-index: 2;
+  background: rgba(
+    0,
+    0,
+    0,
+    0.35
+  ); /* Overlay un poco más claro para un contraste más suave */
+  padding-bottom: 2.5rem;
+}
+
+header h1 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 3.5em; /* Ligeramente más pequeño para sutileza */
+  margin-bottom: 0.5rem;
+  letter-spacing: 1.5px; /* Menos espaciado para un look más compacto */
+  animation: fadeInDown 1.2s ease-out;
+  color: #ecf0f1;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4); /* Sombra más sutil */
+}
+
+.subtitle {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 1.3em;
+  margin-top: 0;
+  color: #bdc3c7;
+  animation: fadeIn 1.5s ease-out;
+}
+
+.header-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.header-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.7) grayscale(0.1); /* Menos oscuro y menos gris para una imagen más viva pero elegante */
+  animation: zoomIn 5s ease-out forwards;
+}
+
+nav ul {
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  background-color: rgba(44, 62, 80, 0.7); /* Menos opacidad */
+  border-radius: 30px; /* Bordes más redondeados */
+  display: inline-flex;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3); /* Sombra más suave */
+  padding: 0.7rem 1.2rem;
+}
+
+nav ul li {
+  margin: 0 15px; /* Espaciado ajustado */
+}
+
+nav ul li a {
+  color: #bdc3c7;
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  padding: 8px 12px; /* Padding más pequeño */
+  transition: all 0.3s ease;
+  border-radius: 20px; /* Más redondeado */
+  font-size: 1em; /* Ligeramente más pequeño */
+}
+
+nav ul li a:hover {
+  background-color: #34495e;
+  color: #3498db;
+  transform: translateY(-3px) scale(1.03); /* Menos desplazamiento y escala */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25); /* Sombra más suave en hover */
+}
+
+/* --- Sections --- */
+main {
+  padding: 60px 0; /* Más padding para una sensación más "aireada" */
+}
+
+section {
+  position: relative;
+  min-height: 450px; /* Ligeramente menos alto para un look más compacto */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 60px auto; /* Menos margen entre secciones para una mayor cohesión */
+  background-color: #ffffff;
+  border-radius: 12px; /* Menos redondeado para una elegancia sutil */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Sombra más difusa y suave */
+  overflow: hidden;
+  width: 90%;
+  max-width: 1100px; /* Ligeramente más estrecho */
+  opacity: 0;
+  transform: translateY(20px); /* Menos desplazamiento inicial */
+  animation: fadeInUp 1s ease-out forwards;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición más rápida */
+}
+
+/* Efecto hover en la sección completa */
+section:hover {
+  transform: translateY(-5px); /* Menos levantamiento */
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2); /* Sombra ligeramente más grande */
+}
+
+.section-with-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: brightness(0.5) grayscale(0.2); /* Un poco más brillante y menos gris */
+  z-index: 1;
+  transition: filter 0.4s ease, transform 0.4s ease; /* Transición más suave y rápida */
+}
+
+/* Parallax sutil y efecto hover en el fondo */
+section:hover .section-with-bg::before {
+  filter: brightness(0.6) grayscale(0.1); /* Un poco más brillante al hover */
+  transform: scale(1.01); /* Zoom aún más sutil */
+}
+
+/* Imágenes de fondo específicas por sección (mantenemos estas) */
+#about.section-with-bg::before {
+  background-image: url("/img/norway_fjord.jpg");
+}
+#activities.section-with-bg::before {
+  background-image: url("/img/norway_aurora.jpg");
+}
+#accommodation.section-with-bg::before {
+  background-image: url("/img/norway_cabin.jpg");
+}
+#food.section-with-bg::before {
+  background-image: url("/img/norway_food.jpg");
+}
+/* Imagen para la nueva sección de presentación */
+#presentation-card.section-with-bg::before {
+  background-image: url("https://images.unsplash.com/photo-1510519154314-53748987b692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"); /* Imagen de fondo para el coder, puedes cambiarla */
+}
+
+.section-content {
+  position: relative;
+  z-index: 2;
+  color: #ecf0f1;
+  padding: 40px; /* Menos padding para un look más compacto */
+  max-width: 800px; /* Contenido un poco más estrecho */
+  text-align: center;
+  background: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Fondo semi-transparente un poco más claro */
+  border-radius: 8px; /* Menos redondeado */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4); /* Sombra interna más suave */
+  backdrop-filter: blur(
+    4px
+  ); /* Efecto de desenfoque ligeramente menos intenso */
+  -webkit-backdrop-filter: blur(4px);
+  transform: scale(0.98); /* Empieza un poco más grande */
+  opacity: 0;
+  animation: contentFadeInScale 1.2s ease-out forwards; /* Animación más rápida */
+  animation-delay: 0.3s; /* Retrasa la animación del contenido */
+}
+
+/* Retrasos de animación para cada sección de contenido */
+#about .section-content {
+  animation-delay: 0.4s;
+}
+#activities .section-content {
+  animation-delay: 0.6s;
+}
+#accommodation .section-content {
+  animation-delay: 0.8s;
+}
+#food .section-content {
+  animation-delay: 1s;
+}
+#presentation-card .section-content {
+  animation-delay: 1.2s; /* Retraso para la nueva sección */
+}
+
+section h2 {
+  font-family: "Montserrat", sans-serif;
+  color: #3498db;
+  margin-bottom: 20px; /* Menos margen */
+  font-size: 2.8em; /* Títulos más pequeños para sutileza */
+  position: relative;
+  display: inline-block;
+  padding-bottom: 8px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Sombra más sutil */
+}
+
+section h2::after {
+  content: "";
+  display: block;
+  width: 50%; /* Línea más corta */
+  height: 4px; /* Más fina */
+  background-color: #3498db;
+  margin: 5px auto 0 auto;
+  border-radius: 2px;
+}
+
+section p {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.2em; /* Párrafos ligeramente más pequeños */
+  color: #e0e0e0; /* Un gris más cálido y claro para los párrafos */
+  text-align: center;
+  line-height: 1.7; /* Ligeramente menos interlineado */
+}
+
+section ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(250px, 1fr)
+  ); /* Items ligeramente más pequeños */
+  gap: 20px; /* Menos espacio entre items */
+  margin-top: 30px;
+}
+
+section ul li {
+  background-color: rgba(255, 255, 255, 0.1); /* Fondo más transparente */
+  padding: 15px 25px; /* Menos padding */
+  border-radius: 10px; /* Menos redondeado */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Sombra más sutil */
+  transition: transform 0.3s ease, background-color 0.3s ease,
+    box-shadow 0.3s ease, color 0.3s ease;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 1.1em; /* Texto de item ligeramente más pequeño */
+  color: #ecf0f1;
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Borde más sutil */
+  cursor: pointer;
+}
+
+section ul li:hover {
+  transform: translateY(-5px) scale(1.01); /* Menos levantamiento y escala */
+  background-color: rgba(255, 255, 255, 0.2); /* Más sólido al hover */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Sombra más suave */
+  color: #3498db;
+}
+
+/* --- Button --- */
+button {
+  display: block;
+  margin: 40px auto 20px auto; /* Menos espacio */
+  padding: 15px 35px; /* Botón ligeramente más pequeño */
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 40px; /* Menos redondeado */
+  font-size: 1.2em; /* Texto del botón ligeramente más pequeño */
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600; /* Menos negrita */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease,
+    box-shadow 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25); /* Sombra más suave */
+  letter-spacing: 1px;
+}
+
+button:hover {
+  background-color: #2980b9;
+  transform: translateY(-5px) scale(1.02); /* Menos levantamiento y escala */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35); /* Sombra más suave */
+}
+
+/* --- Footer --- */
+footer {
+  background-color: #2c3e50;
+  color: #bdc3c7;
+  text-align: center;
+  padding: 2rem 0; /* Menos padding */
+  font-size: 0.95em;
+  margin-top: 60px; /* Menos margen */
+  box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.2); /* Sombra más suave */
+  font-family: "Roboto", sans-serif;
+}
+
+/* --- Animations --- */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  } /* Viene de menos arriba */
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  } /* Viene de menos abajo */
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(1.05);
+  } /* Empieza con menos zoom */
+  to {
+    transform: scale(1);
+  }
+}
+
+/* Nueva animación para el contenido de las secciones */
+@keyframes contentFadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* --- Airplane Animation --- */
+#airplane-animation {
+  position: fixed;
+  width: 120px; /* Ligeramente más pequeño */
+  height: 120px;
+  background-image: url("/img/avion-removebg-preview.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.8; /* Ligeramente más transparente */
+  z-index: 9999;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  animation: flyAirplane 25s linear infinite; /* Animación más lenta para un vuelo más suave */
+}
+
+/* --- Ajuste de Keyframes para un vuelo más dinámico y suave --- */
+@keyframes flyAirplane {
+  0% {
+    left: -10%; /* Empieza menos lejos */
+    top: 25%; /* Altura ligeramente diferente */
+    transform: translate(-50%, -50%) rotateY(10deg) rotateZ(0deg); /* Inclinación inicial más suave */
+  }
+  25% {
+    top: 20%; /* Sube un poco */
+    transform: translate(-50%, -50%) rotateY(5deg) rotateZ(2deg); /* Ligera inclinación hacia arriba más suave */
+  }
+  50% {
+    left: 50%;
+    top: 28%; /* Baja un poco más */
+    transform: translate(-50%, -50%) rotateY(0deg) rotateZ(-2deg); /* Endereza y baja más suave */
+  }
+  75% {
+    top: 23%; /* Vuelve a subir */
+    transform: translate(-50%, -50%) rotateY(-5deg) rotateZ(2deg); /* Inclina hacia el otro lado más suave */
+  }
+  100% {
+    left: 110%; /* Termina menos lejos */
+    top: 25%; /* Vuelve a la altura inicial */
+    transform: translate(-50%, -50%) rotateY(-10deg) rotateZ(0deg); /* Inclinación final más suave */
+  }
+}
+
+/* Responsive Design (Mantenemos y ajustamos) */
+@media (max-width: 992px) {
+  header h1 {
+    font-size: 2.8em;
+  }
+  .subtitle {
+    font-size: 1.1em;
+  }
+  nav ul {
+    padding: 0.4rem 0.8rem;
+  }
+  nav ul li {
+    margin: 0 8px;
+  }
+  nav ul li a {
+    font-size: 0.95em;
+  }
+  .section-content {
+    padding: 25px;
+  }
+  section h2 {
+    font-size: 2.2em;
+  }
+  section p {
+    font-size: 1em;
+  }
+  section ul {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+  section ul li {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2.2em;
+  }
+  .subtitle {
+    font-size: 0.9em;
+  }
+  nav ul {
+    flex-direction: column;
+    width: 90%;
+    margin: 0.8rem auto;
+  }
+  nav ul li {
+    margin: 4px 0;
+  }
+  section {
+    margin: 30px auto;
+    min-height: 350px;
+  }
+  .section-content {
+    padding: 15px;
+  }
+  section h2 {
+    font-size: 1.8em;
+  }
+  section p,
+  section ul li {
+    font-size: 0.9em;
+  }
+  button {
+    padding: 10px 20px;
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.8em;
+  }
+  .subtitle {
+    font-size: 0.8em;
+  }
+  nav ul li a {
+    font-size: 0.85em;
+  }
+  section h2 {
+    font-size: 1.6em;
+  }
+  #airplane-animation {
+    width: 90px;
+    height: 90px;
+  }
+}
+
+/* --- Presentation Card Section (Mantener y refinar) --- */
+#presentation-card.section-with-bg::before {
+  background-image: url("https://images.unsplash.com/photo-1510519154314-53748987b692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"); /* Imagen de fondo para el coder */
+  background-position: center;
+  background-size: cover;
+}
+
+#presentation-card .coder-info {
+  margin-top: 25px; /* Menos margen */
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* Menos espacio entre elementos */
+  align-items: center;
+}
+
+#presentation-card .coder-info p {
+  font-size: 1.3em; /* Ligeramente más pequeño */
+  color: #ecf0f1;
+  background-color: rgba(52, 152, 219, 0.15); /* Más transparente */
+  padding: 8px 18px; /* Menos padding */
+  border-radius: 6px; /* Menos redondeado */
+  border: 1px solid rgba(52, 152, 219, 0.3); /* Borde más sutil */
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3); /* Sombra más sutil */
+  transition: background-color 0.2s ease, transform 0.2s ease; /* Transiciones más rápidas */
+}
+
+#presentation-card .coder-info p:hover {
+  background-color: rgba(
+    52,
+    152,
+    219,
+    0.3
+  ); /* Ligeramente más sólido en hover */
+  transform: translateY(-2px); /* Menos desplazamiento en hover */
+}
+
+#presentation-card .coder-info strong {
+  color: #3498db;
+  font-weight: 600; /* Menos negrita */
+}
+
+/* Asegurar la visibilidad del contenido */
+#presentation-card .section-content h2 {
+  color: #3498db;
+}
+
+#presentation-card .section-content p {
+  color: #ecf0f1;
+}
